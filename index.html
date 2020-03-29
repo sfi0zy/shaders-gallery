@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shaders Gallery</title>
+
+        <style>
+            .gallery-container {
+                position: absolute;
+                width: calc(100% - 32px);
+                height: calc(100% - 32px);
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class='gallery-container'></div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
+
+        <script type='module'>
+
+            import ShadersGallery from './shaders-gallery.js';
+
+            const options = {
+                container: document.querySelector('.gallery-container'),
+                urls: [
+                    'https://picsum.photos/id/1018/1920/1080.jpg',
+                    'https://picsum.photos/id/1015/1920/1080.jpg',
+                    'https://picsum.photos/id/1016/1920/1080.jpg'
+                ],
+                imageSize: {
+                    x: 1920,
+                    y: 1080
+                },
+                callbacks: {
+                    onGalleryCreated: function() {
+                        console.log('It\'s time to remove preloader!');
+                    }
+                }
+            };
+
+            window.gallery = new ShadersGallery(options);
+
+            console.log(window.gallery);
+
+        </script>
+    </body>
+</html>

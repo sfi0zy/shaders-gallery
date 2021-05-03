@@ -50,7 +50,10 @@ The following steps are required to start using the Shaders Gallery:
 <!-- STEP 3: Init and use the gallery -->
 
 <script type='module'>
+
     import ShadersGallery from './shaders-gallery.js';
+
+    let gallery;
 
     const options = {
         container: document.querySelector('.gallery-container'),
@@ -65,19 +68,18 @@ The following steps are required to start using the Shaders Gallery:
         },
         callbacks: {
             onGalleryCreated: function() {
-                // It's time to remove your preloader!
+                // It's time to remove your preloader and use the gallery!
+                // >> gallery.goToNextSlide();
+                // or
+                // >> gallery.goToPrevSlide();
+                // or
+                // >> gallery.goTo(index); where index = 0, 1, 2...
             }
         }
     };
 
-    const gallery = new ShadersGallery(options);
+    gallery = new ShadersGallery(options);
 
-    // Then use it!
-    // >> gallery.goToNextSlide();
-    // or
-    // >> gallery.goToPrevSlide();
-    // or
-    // >> gallery.goTo(index); where index = 0, 1, 2...
 </script>
 
 ```
